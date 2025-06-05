@@ -46,7 +46,11 @@
         </div>
         
         <div class="contact-form">
-          <form action="https://formspree.io/f/xnnvnrzr" method="POST" @submit="handleSubmit">
+          <form 
+            action="https://formspree.io/f/xnnvnrzr" 
+            method="POST"
+            @submit="handleSubmit"
+          >
             <div class="form-group">
               <input 
                 type="text" 
@@ -88,9 +92,11 @@
               ></textarea>
             </div>
             
-            <!-- Campo oculto para identificar o remetente -->
-            <input type="hidden" name="_subject" value="Nova mensagem do portfólio">
-            <input type="hidden" name="_next" value="#contact">
+            <!-- Campos importantes para o Formspree -->
+            <input type="hidden" name="_replyto" value="victorgabrielboeri10@gmail.com">
+            <input type="hidden" name="_subject" value="Nova mensagem do portfólio - Victor Gabriel">
+            <input type="hidden" name="_next" value="https://seu-site.netlify.app/#contact">
+            <input type="hidden" name="_format" value="plain">
             
             <button type="submit" class="btn btn-submit" :disabled="isSubmitting">
               <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
@@ -109,6 +115,22 @@
             </div>
           </form>
         </div>
+      </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div v-if="showNotification" :class="['toast-notification', notificationType]">
+      <div class="toast-content">
+        <div class="toast-icon">
+          <i :class="notificationIcon"></i>
+        </div>
+        <div class="toast-message">
+          <h4>{{ notificationTitle }}</h4>
+          <p>{{ notificationMessage }}</p>
+        </div>
+        <button @click="closeNotification" class="toast-close">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -135,29 +157,53 @@ const isSubmitting = ref(false);
 const successMessage = ref('');
 const errorMessage = ref('');
 
-const handleSubmit = (event: Event) => {
+const handleSubmit = async (event: Event) => {
+  event.preventDefault();
   isSubmitting.value = true;
   successMessage.value = '';
   errorMessage.value = '';
   
-  // O Formspree vai lidar com o envio automaticamente
-  // Vamos apenas mostrar feedback visual
-  
-  setTimeout(() => {
-    successMessage.value = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
+  try {
+    const formData = new FormData();
+    formData.append('name', form.name);
+    formData.append('email', form.email);
+    formData.append('subject', form.subject);
+    formData.append('message', form.message);
+    formData.append('_replyto', 'victorgabrielboeri10@gmail.com');
+    formData.append('_subject', 'Nova mensagem do portfólio - Victor Gabriel');
+    
+    const response = await fetch('https://formspree.io/f/xnnvnrzr', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      successMessage.value = 'Mensagem enviada com sucesso! Verifique também sua pasta de spam. Entrarei em contato em breve.';
+      
+      // Reset form
+      form.name = '';
+      form.email = '';
+      form.subject = '';
+      form.message = '';
+    } else {
+      throw new Error('Erro no envio');
+    }
+    
+  } catch (error) {
+    console.error('Erro ao enviar:', error);
+    errorMessage.value = 'Erro ao enviar mensagem. Tente novamente ou entre em contato diretamente pelo email: victorgabrielboeri10@gmail.com';
+  } finally {
     isSubmitting.value = false;
     
-    // Reset form após sucesso
-    form.name = '';
-    form.email = '';
-    form.subject = '';
-    form.message = '';
-    
-    // Limpar mensagem após 5 segundos
+    // Limpar mensagens após 8 segundos
     setTimeout(() => {
       successMessage.value = '';
-    }, 5000);
-  }, 1000);
+      errorMessage.value = '';
+    }, 8000);
+  }
 };
 </script>
 
@@ -313,5 +359,39 @@ const handleSubmit = (event: Event) => {
   .contact-form {
     padding: 30px 20px;
   }
+  
+  .toast-notification {
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    min-width: auto;
+    max-width: none;
+  }
 }
 </style>
+
+## 🔍 Possíveis Problemas:
+
+### 1. **Formspree não está configurado corretamente**
+- O endpoint pode não estar ativo
+- Precisa verificar se o email está confirmado no Formspree
+
+### 2. **Email indo para SPAM**
+- Verifique sua pasta de spam/lixo eletrônico
+- Emails do Formspree podem ser filtrados
+
+### 3. **Configuração do formulário**
+- Pode estar faltando alguma configuração
+
+## 🛠️ Soluções:
+
+### **Opção 1: Verificar Formspree**
+
+1. **Acesse [formspree.io](https://formspree.io/)**
+2. **Faça login na sua conta**
+3. **Verifique se o form `xnnvnrzr` está ativo**
+4. **Confirme se o email `victorgabrielboeri10@gmail.com` está verificado**
+
+### **Opção 2: Melhorar o formulário**
+
+Vou atualizar o Contact.vue para garantir que funcione:
