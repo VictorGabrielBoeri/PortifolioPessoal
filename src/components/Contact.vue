@@ -46,43 +46,67 @@
         </div>
         
         <div class="contact-form">
-          <form @submit.prevent="submitForm">
+          <form action="https://formspree.io/f/xnnvnrzr" method="POST" @submit="handleSubmit">
             <div class="form-group">
               <input 
                 type="text" 
+                name="name"
                 v-model="form.name" 
                 placeholder="Seu nome" 
                 required
+                :disabled="isSubmitting"
               >
             </div>
             <div class="form-group">
               <input 
                 type="email" 
+                name="email"
                 v-model="form.email" 
                 placeholder="Seu e-mail" 
                 required
+                :disabled="isSubmitting"
               >
             </div>
             <div class="form-group">
               <input 
                 type="text" 
+                name="subject"
                 v-model="form.subject" 
                 placeholder="Assunto" 
                 required
+                :disabled="isSubmitting"
               >
             </div>
             <div class="form-group">
               <textarea 
+                name="message"
                 v-model="form.message" 
                 placeholder="Sua mensagem" 
                 rows="5" 
                 required
+                :disabled="isSubmitting"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-submit">
-              <i class="fas fa-paper-plane"></i>
-              Enviar Mensagem
+            
+            <!-- Campo oculto para identificar o remetente -->
+            <input type="hidden" name="_subject" value="Nova mensagem do portfólio">
+            <input type="hidden" name="_next" value="#contact">
+            
+            <button type="submit" class="btn btn-submit" :disabled="isSubmitting">
+              <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
+              <i class="fas fa-spinner fa-spin" v-if="isSubmitting"></i>
+              {{ isSubmitting ? 'Enviando...' : 'Enviar Mensagem' }}
             </button>
+            
+            <!-- Mensagens de feedback -->
+            <div v-if="successMessage" class="success-message">
+              <i class="fas fa-check-circle"></i>
+              {{ successMessage }}
+            </div>
+            <div v-if="errorMessage" class="error-message">
+              <i class="fas fa-exclamation-circle"></i>
+              {{ errorMessage }}
+            </div>
           </form>
         </div>
       </div>
@@ -91,7 +115,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 interface ContactForm {
   name: string;
@@ -107,16 +131,33 @@ const form = reactive<ContactForm>({
   message: ''
 });
 
-const submitForm = () => {
-  // Aqui você pode implementar o envio do formulário
-  console.log('Formulário enviado:', form);
-  alert('Mensagem enviada com sucesso!');
+const isSubmitting = ref(false);
+const successMessage = ref('');
+const errorMessage = ref('');
+
+const handleSubmit = (event: Event) => {
+  isSubmitting.value = true;
+  successMessage.value = '';
+  errorMessage.value = '';
   
-  // Reset form
-  form.name = '';
-  form.email = '';
-  form.subject = '';
-  form.message = '';
+  // O Formspree vai lidar com o envio automaticamente
+  // Vamos apenas mostrar feedback visual
+  
+  setTimeout(() => {
+    successMessage.value = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
+    isSubmitting.value = false;
+    
+    // Reset form após sucesso
+    form.name = '';
+    form.email = '';
+    form.subject = '';
+    form.message = '';
+    
+    // Limpar mensagem após 5 segundos
+    setTimeout(() => {
+      successMessage.value = '';
+    }, 5000);
+  }, 1000);
 };
 </script>
 
@@ -222,6 +263,45 @@ const submitForm = () => {
 
 .btn-submit:hover {
   transform: translateY(-2px);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.success-message {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 10px;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-message {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {
