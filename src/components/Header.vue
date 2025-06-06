@@ -24,7 +24,7 @@
             <p class="hero-subtitle">Desenvolvedor Front-End</p>
             <div class="hero-buttons">
               <a href="#contact" class="btn">Entre em contato</a>
-              <a href="#projects" class="btn btn-outline">Ver projetos</a>
+              <router-link to="/projetos" class="btn btn-outline">Ver projetos</router-link>
             </div>
           </div>
           <div class="hero-image">
@@ -71,7 +71,9 @@
   gap: 30px;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links .router-link-active,
+.nav-links .router-link-exact-active {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
@@ -79,7 +81,9 @@
   position: relative;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links .router-link-active:hover,
+.nav-links .router-link-exact-active:hover {
   color: #667eea;
 }
 
