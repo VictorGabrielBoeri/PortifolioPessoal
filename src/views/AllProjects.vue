@@ -15,8 +15,16 @@
 </template>
 
 <script setup lang="ts">
-import Header from '../components/Header.vue'
+import { onMounted } from 'vue'
 import Projects from '../components/Projects.vue'
+
+// Scroll para o topo quando a página carregar
+onMounted(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+})
 </script>
 
 <style scoped>
