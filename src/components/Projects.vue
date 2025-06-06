@@ -1,9 +1,9 @@
 <template>
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title">Todos os projetos</h2>
+      <h2 class="section-title">{{ showLimited ? 'Projetos em Destaque' : 'Todos os Projetos' }}</h2>
       <div class="projects-grid">
-        <div v-for="project in projects" :key="project.id" class="project-card">
+        <div v-for="project in displayedProjects" :key="project.id" class="project-card">
           <div class="project-image">
             <img :src="project.image" :alt="project.title" />
             <div class="project-overlay">
@@ -28,11 +28,29 @@
           </div>
         </div>
       </div>
+      
+      <!-- Botão Ver Mais Projetos -->
+      <div v-if="showLimited" class="projects-actions">
+        <router-link to="/projetos" class="btn btn-view-more">
+          <i class="fas fa-plus"></i>
+          Ver Mais Projetos
+        </router-link>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
+interface Props {
+  showLimited?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  showLimited: true
+})
+
 interface Project {
   id: number;
   title: string;
@@ -49,6 +67,7 @@ const projects: Project[] = [
     title: 'Nutricionista App',
     description: 'Sistema web moderno para nutricionistas gerenciarem planos alimentares de pacientes com interface responsiva e tema claro/escuro.',
     image: '/img/projects/NutricionistaApp.png',
+    demo: 'https://nutricionistaapp.netlify.app/',
     github: 'https://github.com/VictorGabrielBoeri/Nutricionista-App',
     technologies: ['Vue.js', 'TypeScript', 'TailwindCSS', 'Axios']
   },
@@ -57,24 +76,25 @@ const projects: Project[] = [
     title: 'Weather App',
     description: 'Aplicativo de previsão do tempo moderno e responsivo com busca de clima por cidade e sugestões automáticas.',
     image: '/img/projects/weather-app.png',
-    demo: 'https://weather-qyhtahpau-victorgabrielboeris-projects.vercel.app/',
+    demo: 'https://weatherappprojectime.netlify.app/',
     github: 'https://github.com/VictorGabrielBoeri/Weather-App',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'OpenWeatherMap API']
   },
   {
     id: 3,
-    title: 'Internet Banking',
-    description: 'Aplicação de internet banking desenvolvida em Vue 3 + TypeScript, simulando funcionalidades de um banco digital moderno.',
-    image: '/img/projects/InternetBanking.png',
-    github: 'https://github.com/VictorGabrielBoeri/front-end-teste',
-    technologies: ['Vue.js', 'TypeScript', 'Vuetify', 'Chart.js']
+    title: 'Padaria Delícias do Forno',
+    description: 'Website moderno para padaria com cardápio interativo, informações sobre produtos artesanais e design responsivo.',
+    image: '/img/projects/PadariaHome.png',
+    demo: 'https://sitepadaria.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/SiteParaPadaria',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design']
   },
   {
     id: 4,
     title: 'Space Tourism',
     description: 'Website multi-página de turismo espacial com design moderno e responsivo, baseado em desafio do Frontend Mentor.',
     image: '/img/projects/space-tourism-multi-page-website.png',
-    demo: 'https://space-tourism-multi-page-website-peach-theta.vercel.app/',
+    demo: 'https://spacetourismmultipagewebsite.netlify.app/',
     github: 'https://github.com/VictorGabrielBoeri/space-tourism-multi-page-website',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design']
   },
@@ -97,6 +117,10 @@ const projects: Project[] = [
     technologies: ['Vue.js', 'TypeScript', 'CSS3', 'Timer']
   }
 ];
+
+const displayedProjects = computed(() => {
+  return props.showLimited ? projects.slice(0, 6) : projects
+})
 </script>
 
 <style scoped>
@@ -213,5 +237,29 @@ const projects: Project[] = [
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.projects-actions {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-view-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.btn-view-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
 }
 </style>
