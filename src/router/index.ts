@@ -15,9 +15,16 @@ const routes = [
   }
 ]
 
+// Adicionar scrollBehavior ao router
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes: [
+    ...routes
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // Sempre scroll para o topo ao navegar para uma nova rota
+    return { top: 0, behavior: 'smooth' }
+  }
 })
 
 export default router

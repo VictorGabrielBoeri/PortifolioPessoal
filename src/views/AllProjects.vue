@@ -20,10 +20,12 @@ import Projects from '../components/Projects.vue'
 
 // Scroll para o topo quando a página carregar
 onMounted(() => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, 100)
 })
 </script>
 
