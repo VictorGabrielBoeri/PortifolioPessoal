@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <Header />
-    <About />
-    <Skills />
-    <Experience />
-    <Projects :showLimited="true" />
-    <Contact />
-  </div>
+  <Header />
+  <About />
+  <Skills />
+  <Experience />
+  <Projects :showLimited="true" />
+  <Contact />
 </template>
 
 <script setup lang="ts">

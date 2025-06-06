@@ -1,41 +1,46 @@
 <template>
   <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <div class="logo">
-          <span>Portfólio</span>
-        </div>
-        <div class="nav-links">
-          <a href="#about">Sobre</a>
-          <a href="#skills">Habilidades</a>
-          <a href="#experience">Experiência</a>
-          <a href="#projects">Projetos</a>
-          <a href="#contact">Contato</a>
-        </div>
-      </nav>
-      
-      <div class="hero">
-        <div class="hero-content">
-          <div class="hero-text">
-            <h1>
-              Olá, eu sou o<br>
-              <span class="highlight">Victor Gabriel :)</span>
-            </h1>
-            <p class="hero-subtitle">Desenvolvedor Front-End</p>
-            <div class="hero-buttons">
-              <a href="#contact" class="btn">Entre em contato</a>
-              <router-link to="/projetos" class="btn btn-outline">Ver projetos</router-link>
-            </div>
+    <nav class="nav container">
+      <div class="logo">
+        <span>Portfólio</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">Sobre</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#experience">Experiência</a>
+        <a href="#projects">Projetos</a>
+        <a href="#contact">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>
+            Olá, eu sou o<br />
+            <span class="highlight">Victor Gabriel :)</span>
+          </h1>
+          <p class="hero-subtitle">Desenvolvedor Front-End</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn">Entre em contato</a>
+            <router-link to="/projetos" class="btn btn-outline"
+              >Ver projetos</router-link
+            >
           </div>
-          <div class="hero-image">
-            <div class="profile-circle">
-              <img src="/public/img/icons/Perfil-removebg-preview.png" alt="Victor Gabriel" />
-            </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-circle">
+            <img
+              src="/public/img/icons/Perfil-removebg-preview.png"
+              alt="Victor Gabriel"
+            />
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -44,9 +49,11 @@
 
 <style scoped>
 .header {
-  min-height: 100vh;
-  position: relative;
+  position: fixed;
+  width: 100%;
   overflow: hidden;
+  z-index: 999;
+  backdrop-filter: blur(50px);
 }
 
 .nav {
@@ -88,7 +95,7 @@
 }
 
 .nav-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -105,7 +112,7 @@
 .hero {
   display: flex;
   align-items: center;
-  min-height: calc(100vh - 80px);
+  min-height: 700px;
   padding: 40px 0;
 }
 
@@ -177,7 +184,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -186,25 +194,25 @@
 }
 
 @media (max-width: 768px) {
-  .nav-links {
+  .nav-links, header {
     display: none;
   }
-  
+
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 40px;
   }
-  
+
   .hero-text h1 {
     font-size: 2.5rem;
   }
-  
+
   .profile-circle {
     width: 250px;
     height: 250px;
   }
-  
+
   .hero-buttons {
     justify-content: center;
   }
