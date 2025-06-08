@@ -120,6 +120,15 @@ const projects: Project[] = [
     demo: 'https://projeto-lista-de-tarefas-seven.vercel.app/#/',
     github: 'https://github.com/VictorGabrielBoeri/ProjetoListaDeTarefas',
     technologies: ['Vue.js', 'TypeScript', 'CSS3', 'Timer']
+  },
+  {
+    id: 7,
+    title: 'ChatRealTime',
+    description: 'Aplicativo de chat em tempo real desenvolvido com Angular e Socket.IO, oferecendo comunicação instantânea entre usuários com compartilhamento de arquivos.',
+    image: '/img/projects/MensagemApp.png',
+    demo: 'https://chatrealtimeangular.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/ChatRealTime',
+    technologies: ['Angular', 'Socket.IO', 'Node.js', 'SCSS']
   }
 ];
 

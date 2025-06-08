@@ -109,6 +109,15 @@ const projects: Project[] = [
   },
   {
     id: 6,
+    title: 'ChatRealTime',
+    description: 'Aplicativo de chat em tempo real desenvolvido com Angular e Socket.IO, oferecendo comunicação instantânea entre usuários com compartilhamento de arquivos.',
+    image: '/img/projects/MensagemApp.png',
+    demo: 'https://chatrealtimeangular.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/ChatRealTime',
+    technologies: ['Angular', 'Socket.IO', 'Node.js', 'SCSS']
+  },
+  {
+    id: 7,
     title: 'Lista de Tarefas',
     description: 'Projeto feito com Vue para adicionar itens e cronometrar tempo para finalização das tarefas criadas.',
     image: '/img/projects/projeto-lista-de-tarefas.png',
@@ -116,15 +125,6 @@ const projects: Project[] = [
     github: 'https://github.com/VictorGabrielBoeri/ProjetoListaDeTarefas',
     technologies: ['Vue.js', 'TypeScript', 'CSS3', 'Timer']
   },
-  {
-    id: 7,
-    title: 'ChatRealTime',
-    description: 'Aplicativo de chat em tempo real desenvolvido com Angular e Socket.IO, oferecendo comunicação instantânea entre usuários com compartilhamento de arquivos.',
-    image: '/img/projects/MensagemApp.png',
-    demo: 'https://chatrealtimeangular.netlify.app/',
-    github: 'https://github.com/VictorGabrielBoeri/ChatRealTime',
-    technologies: ['Angular', 'Socket.IO', 'Node.js', 'SCSS']
-  }
 ];
 
 const displayedProjects = computed(() => {
