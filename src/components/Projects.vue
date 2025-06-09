@@ -91,11 +91,11 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: 'Space Tourism',
-    description: 'Website multi-página de turismo espacial com design moderno e responsivo, baseado em desafio do Frontend Mentor.',
-    image: '/img/projects/space-tourism-multi-page-website.png',
-    demo: 'https://spacetourismmultipagewebsite.netlify.app/',
-    github: 'https://github.com/VictorGabrielBoeri/space-tourism-multi-page-website',
+    title: 'Página de Links Portfólio',
+    description: 'Página de links personalizada para designer gráfica com design moderno e responsivo, incluindo links para redes sociais e contato.',
+    image: '/img/projects/PaginaDeLinks.png',
+    demo: 'https://paginadelinksportifolio.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/PaginaDeLinksPortifolio',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design']
   },
   {
@@ -124,6 +124,15 @@ const projects: Project[] = [
     demo: 'https://projeto-lista-de-tarefas-seven.vercel.app/#/',
     github: 'https://github.com/VictorGabrielBoeri/ProjetoListaDeTarefas',
     technologies: ['Vue.js', 'TypeScript', 'CSS3', 'Timer']
+  },
+  {
+    id: 8,
+    title: 'Space Tourism',
+    description: 'Website multi-página de turismo espacial com design moderno e responsivo, baseado em desafio do Frontend Mentor.',
+    image: '/img/projects/space-tourism-multi-page-website.png',
+    demo: 'https://spacetourismmultipagewebsite.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/space-tourism-multi-page-website',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design']
   },
 ];
 

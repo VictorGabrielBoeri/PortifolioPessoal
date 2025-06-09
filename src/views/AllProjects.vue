@@ -129,7 +129,16 @@ const projects: Project[] = [
     demo: 'https://chatrealtimeangular.netlify.app/',
     github: 'https://github.com/VictorGabrielBoeri/ChatRealTime',
     technologies: ['Angular', 'Socket.IO', 'Node.js', 'SCSS']
-  }
+  },
+  {
+    id: 8,
+    title: 'Página de Links Portfólio',
+    description: 'Página de links personalizada para designer gráfica com design moderno e responsivo, incluindo links para redes sociais e contato.',
+    image: '/img/projects/PaginaDeLinks.png',
+    demo: 'https://paginadelinksportifolio.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/PaginaDeLinksPortifolio',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design']
+  },
 ];
 
 const projectsPerPage = 8 // 4x2 layout
