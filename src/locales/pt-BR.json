@@ -1,0 +1,58 @@
+{
+  "header": {
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "greeting": "Olá, eu sou o",
+    "contactMe": "Entre em contato",
+    "viewProjects": "Ver projetos"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "description1": "Desenvolvedor Front-End desde 2020, com foco em interfaces modernas, responsivas e de alta performance. Domínio avançado em HTML, CSS, JavaScript e Vue.js, com experiência em TypeScript, Next.js, Angular e WordPress.",
+    "description2": "Proativo e comprometido, busca sempre entregar qualidade e inovação em cada projeto, focando na melhor experiência do usuário."
+  },
+  "skills": {
+    "title": "Habilidades",
+    "interpersonal": "Habilidades Interpessoais"
+  },
+  "experience": {
+    "title": "Experiência",
+    "present": "Presente",
+    "developer": "Desenvolvedor Front-End",
+    "responsibilities": [
+      "Criador de interfaces modernas e responsivas",
+      "Implemento melhorias visuais e funcionais em sistemas e sites",
+      "Foco na experiência do usuário e na alta performance"
+    ],
+    "education": "Educação"
+  },
+  "projects": {
+    "title": "Projetos",
+    "allProjects": "Todos os Projetos",
+    "subtitle": "Explore meu portfólio completo de desenvolvimento",
+    "backToHome": "Voltar ao Início",
+    "viewMore": "Ver mais",
+    "demo": "Demo",
+    "code": "Código"
+  },
+  "contact": {
+    "title": "Contatos",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "location": "Localização",
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "message": "Mensagem",
+      "send": "Enviar mensagem"
+    }
+  },
+  "language": {
+    "select": "Selecionar idioma",
+    "pt-BR": "Português",
+    "en-US": "Inglês"
+  }
+}

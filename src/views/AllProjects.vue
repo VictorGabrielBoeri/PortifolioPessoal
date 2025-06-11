@@ -2,7 +2,7 @@
   <div>
     <section class="all-projects-hero">
       <div class="container">
-        <h1 class="hero-title">Todos os Meus Projetos</h1>
+        <h1 class="hero-title">{{ $t('projects.allProjects') }}</h1>
         <p class="hero-subtitle">Explore meu portfólio completo de desenvolvimento</p>
         <router-link to="/" class="btn btn-back">
           <i class="fas fa-arrow-left"></i>
@@ -21,10 +21,10 @@
               <div class="project-overlay">
                 <div class="project-links">
                   <a v-if="project.demo" :href="project.demo" target="_blank" class="project-link">
-                    <i class="fas fa-external-link-alt"></i>
+                    <i class="fas fa-external-link-alt"></i> {{ $t('projects.demo') }}
                   </a>
                   <a :href="project.github" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
+                    <i class="fab fa-github"></i> {{ $t('projects.code') }}
                   </a>
                 </div>
               </div>
@@ -45,7 +45,7 @@
         <div v-if="hasMoreProjects" class="projects-actions">
           <button @click="loadMoreProjects" class="btn btn-view-more">
             <i class="fas fa-plus"></i>
-            Ver Mais
+            {{ $t('projects.viewMore') }}
           </button>
         </div>
       </div>
@@ -55,6 +55,9 @@
 
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface Project {
   id: number;

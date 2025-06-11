@@ -1,7 +1,7 @@
 <template>
   <section id="skills" class="section">
     <div class="container">
-      <h2 class="section-title">Habilidades</h2>
+      <h2 class="section-title">{{ $t('skills.title') }}</h2>
       <div class="skills-grid">
         <div v-for="skill in skills" :key="skill.name" class="skill-card">
           <div class="skill-icon">
@@ -18,7 +18,7 @@
       </div>
       
       <div class="soft-skills">
-        <h3>Habilidades Interpessoais</h3>
+        <h3>{{ $t('skills.interpersonal') }}</h3>
         <div class="soft-skills-grid">
           <div v-for="softSkill in softSkills" :key="softSkill" class="soft-skill-item">
             <i class="fas fa-check"></i>
@@ -41,6 +41,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 interface Skill {
   name: string;
   icon: string;

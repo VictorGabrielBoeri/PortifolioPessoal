@@ -1,7 +1,7 @@
 <template>
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title">Contatos</h2>
+      <h2 class="section-title">{{ $t('contact.title') }}</h2>
       <div class="contact-content">
         <div class="contact-info">
           <div class="contact-item">
@@ -9,7 +9,7 @@
               <i class="fas fa-envelope"></i>
             </div>
             <div class="contact-details">
-              <h3>E-mail</h3>
+              <h3>{{ $t('contact.email') }}</h3>
               <a href="mailto:victorgabrielboeri10@gmail.com">victorgabrielboeri10@gmail.com</a>
             </div>
           </div>
@@ -19,7 +19,7 @@
               <i class="fas fa-phone"></i>
             </div>
             <div class="contact-details">
-              <h3>Telefone</h3>
+              <h3>{{ $t('contact.phone') }}</h3>
               <a href="tel:+5511940358622">(11) 94035-8622</a>
             </div>
           </div>
@@ -101,7 +101,7 @@
             <button type="submit" class="btn btn-submit" :disabled="isSubmitting">
               <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
               <i class="fas fa-spinner fa-spin" v-if="isSubmitting"></i>
-              {{ isSubmitting ? 'Enviando...' : 'Enviar Mensagem' }}
+              {{ isSubmitting ? 'Enviando...' : $t('contact.form.send') }}
             </button>
             
             <!-- Mensagens de feedback -->
@@ -138,6 +138,9 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 interface ContactForm {
   name: string;

@@ -1,25 +1,25 @@
 <template>
   <section id="experience" class="section">
     <div class="container">
-      <h2 class="section-title">Experiência</h2>
+      <h2 class="section-title">{{ $t('experience.title') }}</h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <div class="timeline-date">Abril 2023 - Presente</div>
-            <h3>Desenvolvedor Front-End</h3>
+            <div class="timeline-date">Abril 2023 - {{ $t('experience.present') }}</div>
+            <h3>{{ $t('experience.developer') }}</h3>
             <h4>Grupo awtech</h4>
             <ul>
-              <li>Criador de interfaces modernas e responsivas</li>
-              <li>Implemento melhorias visuais e funcionais em sistemas e sites</li>
-              <li>Foco na experiência do usuário e na alta performance</li>
+              <li>{{ $t('experience.responsibilities[0]') }}</li>
+              <li>{{ $t('experience.responsibilities[1]') }}</li>
+              <li>{{ $t('experience.responsibilities[2]') }}</li>
             </ul>
           </div>
         </div>
       </div>
       
       <div class="education">
-        <h3>Educação</h3>
+        <h3>{{ $t('experience.education') }}</h3>
         <div class="education-item">
           <div class="education-icon">
             <i class="fas fa-graduation-cap"></i>
@@ -36,7 +36,9 @@
 </template>
 
 <script setup lang="ts">
-// Component logic here
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <style scoped>

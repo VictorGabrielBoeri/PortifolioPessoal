@@ -1,17 +1,14 @@
 <template>
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">Sobre mim</h2>
+      <h2 class="section-title">{{ $t('about.title') }}</h2>
       <div class="about-content">
         <div class="about-text">
           <p>
-            Desenvolvedor Front-End desde 2020, com foco em interfaces modernas, 
-            responsivas e de alta performance. Domínio avançado em HTML, CSS, 
-            JavaScript e Vue.js, com experiência em TypeScript, Next.js, Angular e WordPress.
+            {{ $t('about.description1') }}
           </p>
           <p>
-            Proativo e comprometido, busca sempre entregar qualidade e inovação 
-            em cada projeto, focando na melhor experiência do usuário.
+            {{ $t('about.description2') }}
           </p>
           <div class="contact-info">
             <div class="contact-item">

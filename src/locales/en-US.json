@@ -1,0 +1,58 @@
+{
+  "header": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "greeting": "Hello, I am",
+    "contactMe": "Contact me",
+    "viewProjects": "View projects"
+  },
+  "about": {
+    "title": "About me",
+    "description1": "Front-End Developer since 2020, focusing on modern, responsive, and high-performance interfaces. Advanced knowledge in HTML, CSS, JavaScript, and Vue.js, with experience in TypeScript, Next.js, Angular, and WordPress.",
+    "description2": "Proactive and committed, always seeking to deliver quality and innovation in each project, focusing on the best user experience."
+  },
+  "skills": {
+    "title": "Skills",
+    "interpersonal": "Interpersonal Skills"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present",
+    "developer": "Front-End Developer",
+    "responsibilities": [
+      "Creator of modern and responsive interfaces",
+      "Implement visual and functional improvements in systems and websites",
+      "Focus on user experience and high performance"
+    ],
+    "education": "Education"
+  },
+  "projects": {
+    "title": "Projects",
+    "allProjects": "All Projects",
+    "subtitle": "Explore my complete development portfolio",
+    "backToHome": "Back to Home",
+    "viewMore": "View more",
+    "demo": "Demo",
+    "code": "Code"
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send message"
+    }
+  },
+  "language": {
+    "select": "Select language",
+    "pt-BR": "Portuguese",
+    "en-US": "English"
+  }
+}

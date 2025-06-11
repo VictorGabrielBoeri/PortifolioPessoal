@@ -5,12 +5,13 @@
         <span>Portfólio</span>
       </div>
       <div class="nav-links">
-        <a href="#about">Sobre</a>
-        <a href="#skills">Habilidades</a>
-        <a href="#experience">Experiência</a>
-        <a href="#projects">Projetos</a>
-        <a href="#contact">Contato</a>
+        <a href="#about">{{ $t('header.about') }}</a>
+        <a href="#skills">{{ $t('header.skills') }}</a>
+        <a href="#experience">{{ $t('header.experience') }}</a>
+        <a href="#projects">{{ $t('header.projects') }}</a>
+        <a href="#contact">{{ $t('header.contact') }}</a>
       </div>
+      <LanguageSwitcher />
     </nav>
   </header>
 
@@ -19,14 +20,14 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1>
-            Olá, eu sou o<br />
+            {{ $t('header.greeting') }}<br />
             <span class="highlight">Victor Gabriel :)</span>
           </h1>
           <p class="hero-subtitle">Desenvolvedor Front-End</p>
           <div class="hero-buttons">
-            <a href="#contact" class="btn">Entre em contato</a>
+            <a href="#contact" class="btn">{{ $t('header.contactMe') }}</a>
             <router-link to="/projetos" class="btn btn-outline"
-              >Ver projetos</router-link
+              >{{ $t('header.viewProjects') }}</router-link
             >
           </div>
         </div>
@@ -44,14 +45,16 @@
 </template>
 
 <script setup lang="ts">
-// Component logic here
+import LanguageSwitcher from './LanguageSwitcher.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <style scoped>
 .header {
   position: fixed;
   width: 100%;
-  overflow: hidden;
   z-index: 999;
   backdrop-filter: blur(50px);
 }
@@ -194,8 +197,14 @@
 }
 
 @media (max-width: 768px) {
-  .nav-links, header {
+  .nav-links {
     display: none;
+  }
+  
+  /* Adicione estilos para o header em telas pequenas */
+  .nav {
+    justify-content: space-between;
+    padding: 15px 0;
   }
 
   .hero-content {

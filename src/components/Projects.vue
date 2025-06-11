@@ -1,18 +1,18 @@
 <template>
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title">{{ showLimited ? 'Projetos em Destaque' : 'Todos os Projetos' }}</h2>
+      <h2 class="section-title">{{ showLimited ? $t('projects.title') : $t('projects.allProjects') }}</h2>
       <div class="projects-grid">
         <div v-for="project in displayedProjects" :key="project.id" class="project-card">
           <div class="project-image">
             <img :src="project.image" :alt="project.title" />
             <div class="project-overlay">
               <div class="project-links">
-                <a v-if="project.demo" :href="project.demo" target="_blank" class="project-link">
-                  <i class="fas fa-external-link-alt"></i>
+                <a :href="project.demo" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> {{ $t('projects.demo') }}
                 </a>
                 <a :href="project.github" target="_blank" class="project-link">
-                  <i class="fab fa-github"></i>
+                  <i class="fab fa-github"></i> {{ $t('projects.code') }}
                 </a>
               </div>
             </div>
@@ -42,6 +42,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 interface Props {
   showLimited?: boolean
