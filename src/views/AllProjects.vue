@@ -142,6 +142,24 @@ const projects: Project[] = [
     github: 'https://github.com/VictorGabrielBoeri/PaginaDeLinksPortifolio',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design']
   },
+  {
+    id: 9,
+    title: 'Clone da Netflix',
+    description: 'Este projeto é um clone da interface da Netflix, desenvolvido como parte do meu portfólio. Ele replica a experiência visual e algumas funcionalidades da plataforma de streaming Netflix, utilizando a API do TMDB (The Movie Database) para obter informações reais sobre filmes e séries.',
+    image: '/img/projects/CloneNetflix.png',
+    demo: 'https://movieappportifolio.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/CloneNetflix',
+    technologies: ['HMTL', 'CSS', 'JavaScript', 'API', 'Responsive Design']
+  },
+  {
+    id: 10,
+    title: 'Calendário de Reservas',
+    description: 'O Calendário de Reservas é uma aplicação web que permite aos usuários agendar horários para serviços, como cortes de cabelo, barba e tratamentos capilares. A aplicação oferece uma interface intuitiva para seleção de datas, horários e serviços, com confirmação via WhatsApp.',
+    image: '/img/projects/ReservaHorario.png',
+    demo: 'https://reservahorario.netlify.app/',
+    github: 'https://github.com/VictorGabrielBoeri/ReservaHorario',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design']
+  },  
 ];
 
 const projectsPerPage = 8 // 4x2 layout
